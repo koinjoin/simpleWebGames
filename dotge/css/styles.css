@@ -1,0 +1,11 @@
+.ground{
+    width:500px;
+    height: 500px;
+    background-color: bisque;
+    position: relative;
+}
+.runner{
+    left:0;
+    top:0;
+    position: absolute;
+}
