@@ -1,7 +1,3 @@
-$(document).ready(function () {
-    var man = new Runner();
-    man.moveTo(300, 300);
-})
 function Runner() {
     this.$user = null;
     this.corX = null;
@@ -10,19 +6,18 @@ function Runner() {
     this.height = null;
     this.start();
 }
-Runner.prototype.groundX = parseInt($(".ground").outerWidth());
-Runner.prototype.groundY = parseInt($(".ground").outerHeight());
-
 Runner.prototype.start = function () {
     this.init();
     this.initEvent();
 }
+
 Runner.prototype.init = function () {
     this.$user = $("#runner");
     this.corX = 0;
     this.corY = 0;
-    this.width = parseInt(this.$user.outerWidth());
-    this.height = parseInt(this.$user.outerHeight());
+    this.width = this.$user.outerWidth();
+    this.height = this.$user.outerHeight();
+    this.setGround();
 }
 Runner.prototype.initEvent = function () {
     var runThis = this;
@@ -30,10 +25,13 @@ Runner.prototype.initEvent = function () {
         runThis.moveMan(event.keyCode);
     })
 }
+Runner.prototype.setGround = function () {
+    Runner.prototype.groundX = $(".ground").outerWidth();
+    Runner.prototype.groundY = $(".ground").outerHeight();
+}
 Runner.prototype.moveTo = function (left, top) {
-    //need modification
-    var maxLeft = 487;
-    var maxTop = 476;
+    var maxLeft = this.groundX - this.width;
+    var maxTop = this.groundY - this.height;
     left = Math.max(0, Math.min(left, maxLeft));
     top = Math.max(0, Math.min(top, maxTop));
     this.$user.css({
