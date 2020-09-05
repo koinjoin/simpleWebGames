@@ -14,7 +14,9 @@
     <script>
         $(document).ready(function () {
             var man = new Runner();
-            var mob1 = new Mob();
+            setInterval(() => {
+                new Mob();
+            }, 2000);
         })
     </script>
     <title>Dotge</title>
