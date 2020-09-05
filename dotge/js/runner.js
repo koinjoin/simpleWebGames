@@ -20,10 +20,17 @@ Runner.prototype.init = function () {
     this.setGround();
 }
 Runner.prototype.initEvent = function () {
-    var runThis = this;
+    var runnerThis = this;
     $(document).keydown(function (event) {
-        runThis.moveMan(event.keyCode);
+        runnerThis.moveMan(event.keyCode);
     })
+    //overlap function??
+    setInterval(() => {
+        var $mobs = $(".ground .mob");
+        $mobs.each(function () {
+            if (runnerThis.isOverlap($(this))) alert("overlap");
+        })
+    }, 300);
 }
 Runner.prototype.setGround = function () {
     Runner.prototype.groundX = $(".ground").outerWidth();
@@ -58,4 +65,10 @@ Runner.prototype.moveMan = function (keyCode) {
         default:
             break;
     }
+}
+Runner.prototype.isOverlap = function ($mob) {
+    return !(this.$user.position().top > $mob.position().top + $mob.outerHeight() ||
+        this.$user.position().left + this.$user.outerWidth() < $mob.position().left ||
+        this.$user.position().top + this.$user.outerHeight() < $mob.position().top ||
+        this.$user.position().left > $mob.position().left + $mob.outerWidth());
 }
