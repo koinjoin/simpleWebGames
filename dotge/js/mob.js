@@ -3,6 +3,7 @@ function Mob() {
     this.corX = null;
     this.corY = null;
     this.speed = null;
+    this.direction = null;
     this.start();
 }
 Mob.prototype.count = 0;
@@ -14,7 +15,8 @@ Mob.prototype.init = function () {
     this.setGround();
     Mob.prototype.count++;
     this.createMob();
-    this.speed = Math.round(Math.random() * 20);
+    this.speed = Math.round(Math.random() * 15);
+    this.direction = Math.random() * Math.PI * 2;
 }
 Mob.prototype.initEvent = function () {
     setInterval(() => {
@@ -33,12 +35,11 @@ Mob.prototype.setGround = function () {
     Mob.prototype.groundX = $(".ground").outerWidth();
     Mob.prototype.groundY = $(".ground").outerHeight();
 }
-//moveTo need modify!!
 Mob.prototype.moveTo = function (left, top) {
     var maxLeft = Mob.prototype.groundX - this.$mob.outerWidth();
     var maxTop = Mob.prototype.groundY - this.$mob.outerHeight();
-    left = Math.max(0, Math.min(left, maxLeft));
-    top = Math.max(0, Math.min(top, maxTop));
+    left = left < 0 ? maxLeft : (left > maxLeft ? 0 : left);
+    top = top < 0 ? maxTop : (top > maxTop ? 0 : top);
     this.$mob.css({
         "left": left + "px",
         "top": top + "px"
@@ -47,7 +48,7 @@ Mob.prototype.moveTo = function (left, top) {
     this.corY = top;
 }
 Mob.prototype.moveRandom = function () {
-    var randX = this.corX + this.speed * (Math.floor(Math.random() * 3) - 1)
-    var randY = this.corY + this.speed * (Math.floor(Math.random() * 3) - 1)
+    var randX = this.corX + Math.cos(this.direction) * this.speed;
+    var randY = this.corY + Math.sin(this.direction) * this.speed;
     this.moveTo(randX, randY);
 }
