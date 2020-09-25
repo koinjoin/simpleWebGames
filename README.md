@@ -8,5 +8,5 @@ Break the bricks with bouncing ball
 rock! paper! scissors! choose one
 
 
-### 아이콘 제작자
+### Icon provider
 [Freepik](https://www.flaticon.com/kr/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/kr/)
