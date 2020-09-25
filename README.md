@@ -4,7 +4,8 @@ building simple game on web
 run away from dots
 ## Game2 Break ths Brick (BtB)
 Break the bricks with bouncing ball
-
+## Game3 Rock Paper Scissors (RPS)
+rock! paper! scissors! choose one
 
 
 ### 아이콘 제작자
