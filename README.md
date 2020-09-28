@@ -2,7 +2,7 @@
 building simple game on web
 ## Game1 Dotge
 run away from dots
-## Game2 Break ths Brick (BtB)
+## Game2 Break the Brick (BtB)
 Break the bricks with bouncing ball
 ## Game3 Rock Paper Scissors (RPS)
 rock! paper! scissors! choose one
