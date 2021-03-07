@@ -28,7 +28,7 @@ Runner.prototype.initEvent = function () {
     setInterval(() => {
         var $mobs = $(".ground .mob");
         $mobs.each(function () {
-            if (runnerThis.isOverlap($(this))) alert("overlap");
+            if (runnerThis.isOverlap($(this))) alert("Ooops!! you've got caught");
         })
     }, 300);
 }
