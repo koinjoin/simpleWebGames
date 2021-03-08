@@ -1,6 +1,6 @@
 # simpleWebGames
 building simple game on web
-## Game1 Dotge
+## Game1 Dodge
 run away from dots
 ## Game2 Break the Brick (BtB)
 Break the bricks with bouncing ball
